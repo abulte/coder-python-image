@@ -16,10 +16,11 @@ env:
 
 
 jobs:
-  strategy:
-    matrix:
-      python_version: ["latest", "3.11", "3.10", "3.9", "3.8", "3.7", "2.7"]
   build:
+    strategy:
+      matrix:
+        python_version: ["latest", "3.11", "3.10", "3.9", "3.8", "3.7", "2.7"]
+
     runs-on: ubuntu-latest
     permissions:
       contents: read
