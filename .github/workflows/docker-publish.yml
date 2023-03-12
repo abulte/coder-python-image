@@ -1,10 +1,5 @@
 name: Docker
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 on:
   schedule:
     - cron: '16 14 * * *'
@@ -80,6 +75,13 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          build-contexts: |
+            python=docker-image://python:2.7
+            python=docker-image://python:3.7
+            python=docker-image://python:3.8
+            python=docker-image://python:3.9
+            python=docker-image://python:3.10
+            python=docker-image://python:3.11
 
 
       # Sign the resulting Docker image digest except on PRs.
